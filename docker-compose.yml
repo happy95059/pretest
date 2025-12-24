@@ -2,7 +2,7 @@ version: "3.9"
    
 services:
   db:
-    image: postgres
+    image: postgres:16-alpine
     volumes:
       - ./data/db:/var/lib/postgresql/data
     ports:
@@ -26,6 +26,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=7432
+      - API_TOKEN=omni_pretest_token
     command: sh run_web.sh
     depends_on:
       - db
